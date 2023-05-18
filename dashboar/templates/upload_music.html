@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+{{ form.audiofile.errors }}
+
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div class="card mx-auto" style="width: 30rem;">
+        <div class="card-body">
+          <h5 class="card-title">Subir</h5>
+          {{ form | crispy }}
+          <button class="btn btn-sm btn-primary" type="submit">Subir música</button>
+        </div>    
+    </div>
+</form>
+
+{% endblock %}

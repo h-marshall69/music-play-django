@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Lista de canciones</h2>
+  <ul>
+    {% for song in songs %}
+      <li>
+        <h3>{{ song.title }}</h3>
+        <img src="{{ song.cover_image.url }}" alt="{{ song.title }} Logo">
+        <audio controls>
+          <source src="{{ song.audiofile.url }}" type="audio/mpeg">
+          Tu navegador no admite la reproducción de audio.
+        </audio>
+      </li>
+    {% empty %}
+      <li>No hay canciones disponibles.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
